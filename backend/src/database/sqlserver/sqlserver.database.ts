@@ -24,7 +24,7 @@ export const getConnection = async (): Promise<ConnectionPool> => {
   try {
     if (!pool) {
       pool = await new sql.ConnectionPool(config).connect();
-      console.log('SQL Server connection established');
+      console.log('######################### SQL Server connection established #########################');
     }
     return pool;
   } catch (err) {

@@ -38,7 +38,7 @@ app.use(`${BASE_PATH}/users`, userRoutes);
 
 app.use(authenticateJWT);
 app.use(`${BASE_PATH}/products`, productRoutes);
-app.use(`${BASE_PATH}/Purchases`, purchasesRoutes);
+app.use(`${BASE_PATH}/purchases`, purchasesRoutes);
 
 app.use(errorHandler);
 
