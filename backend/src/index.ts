@@ -12,6 +12,7 @@ import path from "path";
 import userRoutes from "./modules/user/user.routes";
 import purchasesRoutes from "./modules/purchases/purchases.routes";
 import productRoutes from "./modules/products/product.router";
+import serviceRoutes from "./modules/services/service.router";
 
 const app = express()
 const BASE_PATH = config.BASE_PATH;
@@ -38,6 +39,7 @@ app.use(`${BASE_PATH}/users`, userRoutes);
 
 app.use(authenticateJWT);
 app.use(`${BASE_PATH}/products`, productRoutes);
+app.use(`${BASE_PATH}/services`, serviceRoutes);
 app.use(`${BASE_PATH}/purchases`, purchasesRoutes);
 
 app.use(errorHandler);
