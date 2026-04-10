@@ -11,7 +11,7 @@ export interface SidebarItem {
 }
 
 const SIDEBAR_BLOCKS = {
-  productsOnly: {
+  products: {
     id: 1,
     title: "Productos",
     icon: Package,
@@ -39,11 +39,13 @@ const SIDEBAR_BLOCKS = {
 
 export const sidebarRoutes: Record<number, SidebarItem[]> = {
   [USER_ROLES.Admin]: [
-    SIDEBAR_BLOCKS.productsOnly,
+    SIDEBAR_BLOCKS.products,
+    SIDEBAR_BLOCKS.services,
+    SIDEBAR_BLOCKS.budget,
     { ...SIDEBAR_BLOCKS.users, id: 1 },
   ],
   [USER_ROLES.Ingeniero]: [
-    SIDEBAR_BLOCKS.productsOnly,
+    SIDEBAR_BLOCKS.products,
     SIDEBAR_BLOCKS.services,
     SIDEBAR_BLOCKS.budget,
   ]
