@@ -47,7 +47,7 @@ export class ProductRepository implements IProductRepository{
       SELECT COUNT(*) AS total
       FROM Producto2
       WHERE 
-      Cd_Prod LIKE $1 OR Nombre1 LIKE $1
+      RucE = '20117322751' AND (Cd_Prod LIKE $1 OR Nombre1 LIKE $1)
     `;
     
     const searchValue = `%${search}%`
