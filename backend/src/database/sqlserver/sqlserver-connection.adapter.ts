@@ -1,4 +1,5 @@
 import { ConnectionPool } from 'mssql';
+import { TYPES } from 'mssql';
 import { IDatabaseConnection } from "../../core/database/connection.interface";
 
 export class SqlServerConnectionAdapter implements IDatabaseConnection {
@@ -10,7 +11,19 @@ export class SqlServerConnectionAdapter implements IDatabaseConnection {
     // Bind parameters si existen
     if (params) {
       params.forEach((param, index) => {
-        request.input(`param${index}`, param);
+        if (param instanceof Date) {
+          request.input(`param${index}`, TYPES.DateTime, param);
+        } else if (typeof param === 'number') {
+
+          if (Number.isInteger(param)) {
+            request.input(`param${index}`, TYPES.Int, param);
+          } else {
+            request.input(`param${index}`, TYPES.Decimal(18, 4), param);
+          }
+
+        } else {
+          request.input(`param${index}`, TYPES.VarChar, param);
+        }
       });
       // Reemplaza $1, $2... con @param0, @param1...
       sql = sql.replace(/\$(\d+)/g, (_, num) => `@param${parseInt(num) - 1}`);

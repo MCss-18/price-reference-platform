@@ -1,11 +1,15 @@
 export interface PriceDetail {
-  price: number;
+  price: number; // ya en PEN
+  originalPrice: number; // precio original
+  currency: string;  // '01' | '02'
+  exchangeRate: number;
   transactionDate: string;
   supplier: string;
 }
 
 export interface Purchases {
   productCode: string;
+  productCode2: string,
   description: string;
 
   highest: PriceDetail;
