@@ -17,12 +17,12 @@ const SIDEBAR_BLOCKS = {
     icon: Package,
     url: ROUTES.Products,
   },
-  services: {
-    id: 2,
-    title: "Servicios",
-    icon: Wrench,
-    url: ROUTES.Services,
-  },
+  // services: {
+  //   id: 2,
+  //   title: "Servicios",
+  //   icon: Wrench,
+  //   url: ROUTES.Services,
+  // },
   budget: {
     id: 3,
     title: "Presupuestos",
@@ -40,13 +40,13 @@ const SIDEBAR_BLOCKS = {
 export const sidebarRoutes: Record<number, SidebarItem[]> = {
   [USER_ROLES.Admin]: [
     SIDEBAR_BLOCKS.products,
-    SIDEBAR_BLOCKS.services,
+    // SIDEBAR_BLOCKS.services,
     SIDEBAR_BLOCKS.budget,
     { ...SIDEBAR_BLOCKS.users, id: 1 },
   ],
-  [USER_ROLES.Ingeniero]: [
+  [USER_ROLES.Consultor]: [
     SIDEBAR_BLOCKS.products,
-    SIDEBAR_BLOCKS.services,
+    // SIDEBAR_BLOCKS.services,
     SIDEBAR_BLOCKS.budget,
   ]
 };

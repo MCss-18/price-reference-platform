@@ -8,7 +8,7 @@ const PERMISSIONS_MATRIX: Record<number, Record<string, Permission[]>> = {
     [MODULE.Products]: [PERMISSION.View],
     [MODULE.Users]: [PERMISSION.View],
   },
-  [USER_ROLES.Ingeniero]: {
+  [USER_ROLES.Consultor]: {
     [MODULE.Products]: [PERMISSION.View],
   }
 };
