@@ -42,11 +42,11 @@ export class UserRepository implements IUserRepository {
         JOIN core.usuario_rol ur ON u.id_usuario = ur.usuario_id
         JOIN core.rol r ON ur.rol_id = r.id_rol
         JOIN core.sistema s ON r.sistema_id = s.id_sistema
-        WHERE s.estado = true AND u.id_usuario = $1
+        WHERE s.estado = true AND u.estado = true AND u.id_usuario = $1
           AND r.sistema_id = $2
     `;
 
-    const rows = await conn.query(query, [id, 1])
+    const rows = await conn.query(query, [id, 4])
     return rows[0] ? this.mapRowToUser(rows[0]) : null;
   }
  
@@ -69,11 +69,11 @@ export class UserRepository implements IUserRepository {
         JOIN core.usuario_rol ur ON u.id_usuario = ur.usuario_id
         JOIN core.rol r ON ur.rol_id = r.id_rol
         JOIN core.sistema s ON r.sistema_id = s.id_sistema
-        WHERE s.estado = true AND u.usuario = $1
+        WHERE s.estado = true AND u.estado = true AND u.usuario = $1
           AND r.sistema_id = $2
       `
     ];
-    const values: (string | number)[] = [username, 1];
+    const values: (string | number)[] = [username, 4];
     if (excludeUserId !== undefined) {
       queryParts.push(`AND id_usuario != $2`);
       values.push(excludeUserId);

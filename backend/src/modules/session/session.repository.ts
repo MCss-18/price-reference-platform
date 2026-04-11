@@ -34,7 +34,8 @@ export class SessionRepository implements ISessionRepository{
         JOIN core.usuario u ON s.usuario_id = u.id_usuario
         JOIN core.usuario_rol ur ON ur.usuario_id = u.id_usuario
         JOIN core.rol r ON r.id_rol = ur.rol_id AND r.sistema_id = s.sistema_id
-      WHERE s.id_sesion = $1;
+        JOIN core.sistema si ON r.sistema_id = si.id_sistema
+      WHERE si.estado = true AND u.estado = true AND s.id_sesion = $1;
     `;
     const rows = await conn.query(query, [id]);
     if (rows.length === 0) {
