@@ -9,7 +9,7 @@ export function useSessionList() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const data = await sessionService.getAll();
+      const data = await sessionService.getAllSessions();
       setSessions(data.data);
     } catch (error) {
       console.error("Error fetching data:", error);
