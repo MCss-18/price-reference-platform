@@ -1,4 +1,3 @@
-"use client";
 import { BudgetItem } from "@/types/BudgetItem.type";
 import { useEffect, useState, useMemo } from "react";
 

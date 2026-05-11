@@ -6,7 +6,6 @@ import { USER_ROLES } from "@/constants/roles";
 const PERMISSIONS_MATRIX: Record<number, Record<string, Permission[]>> = {
   [USER_ROLES.Admin]: {
     [MODULE.Products]: [PERMISSION.View],
-    [MODULE.Users]: [PERMISSION.View],
   },
   [USER_ROLES.Consultor]: {
     [MODULE.Products]: [PERMISSION.View],

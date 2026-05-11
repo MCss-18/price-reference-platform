@@ -5,7 +5,7 @@ import SelectLimitFilter from "./ui/SelectLimitFilter";
 
 type ColumnOption = {
   key: string
-  label: string
+  label: string 
 }
 
 interface ExtraButton {

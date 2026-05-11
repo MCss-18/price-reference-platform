@@ -73,7 +73,7 @@ export class SessionRepository implements ISessionRepository{
         AND expira_en > NOW()
       ORDER BY fecha_creacion DESC;
     `;
-    const rows = await conn.query(query, [1, userId]);
+    const rows = await conn.query(query, [4, userId]);
     return rows.map(this.mapRowToSession);
   }
   
@@ -102,7 +102,7 @@ export class SessionRepository implements ISessionRepository{
       VALUES ($1, $2, $3, $4)
       RETURNING id_sesion
     `;
-    const values = [ userId, 1, JSON.stringify(userAgent), expiredAt];
+    const values = [ userId, 4, JSON.stringify(userAgent), expiredAt];
     const rows = await conn.query(query, values);
     const sessionId = rows[0]?.id_sesion;
     return sessionId;

@@ -1,4 +1,4 @@
-import { FileText, LucideIcon, Package, UsersRound, Wrench } from "lucide-react";
+import { FileText, LucideIcon, Package } from "lucide-react";
 import { USER_ROLES } from "@/constants/roles";
 import { ROUTES } from "./module-platform";
 
@@ -17,36 +17,21 @@ const SIDEBAR_BLOCKS = {
     icon: Package,
     url: ROUTES.Products,
   },
-  // services: {
-  //   id: 2,
-  //   title: "Servicios",
-  //   icon: Wrench,
-  //   url: ROUTES.Services,
-  // },
   budget: {
-    id: 3,
+    id: 2,
     title: "Presupuestos",
     icon: FileText,
     url: ROUTES.Budget,
   },
-  users: {
-    id: 4,
-    title: "Usuarios",
-    url: ROUTES.Users,
-    icon: UsersRound,
-  }
 } satisfies Record<string, SidebarItem>;
 
 export const sidebarRoutes: Record<number, SidebarItem[]> = {
   [USER_ROLES.Admin]: [
     SIDEBAR_BLOCKS.products,
-    // SIDEBAR_BLOCKS.services,
     SIDEBAR_BLOCKS.budget,
-    { ...SIDEBAR_BLOCKS.users, id: 1 },
   ],
   [USER_ROLES.Consultor]: [
     SIDEBAR_BLOCKS.products,
-    // SIDEBAR_BLOCKS.services,
     SIDEBAR_BLOCKS.budget,
   ]
 };

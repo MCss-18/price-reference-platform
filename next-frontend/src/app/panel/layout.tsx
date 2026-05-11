@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 export default function PanelLayout({ children }: { children: React.ReactNode }) {
   const { data, isLoading } = useAuth();
   const user = data?.user;
-  
+
   if (isLoading) return <FullPageLoader />;
 
   if (!user) {
